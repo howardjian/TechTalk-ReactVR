@@ -29,7 +29,7 @@ class Button extends React.Component {
               width: 0.7,
               height: 0.7,
             }}
-            source={asset('cloud.png')}
+            source={asset('this.props.src')}
           >
           </Image>
         </VrButton>
@@ -39,19 +39,3 @@ class Button extends React.Component {
 }
 
 export default Button;
-
-
-// <Text
-//   style={{
-//       backgroundColor: '#777879',
-//       fontSize: 0.5,
-//       fontWeight: '200',
-//       layoutOrigin: [0.5, 0.5],
-//       paddingLeft: 0.2,
-//       paddingRight: 0.2,
-//       textAlign: 'center',
-//       textAlignVertical: 'center'
-//     }}
-// >
-//   Am I Real?
-// </Text>

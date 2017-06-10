@@ -6,7 +6,7 @@ import {
   Text,
   View,
 } from 'react-vr';
-import Button from './Button';
+import UI from './UI';
 
 const clouds = [
   {
@@ -24,7 +24,12 @@ export default class ButtonsWorld extends React.Component {
     return (
       <View >
         <Pano source={asset('buttondrawing.jpg')}/>
-        <Button />
+        <UI
+          buttonConfig={clouds}
+          onClick={(key) => {
+            this.setState({src: clouds[key].imageSrc})
+          }}
+        />
       </View>
     );
   }
