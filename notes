@@ -1,0 +1,57 @@
+REACT VR
+
+// Dependencies
+import React from 'react';
+import { AppRegistry, asset, Pano, Text, View } from 'react-vr';
+
+Declarations such as <View>, <Pano>, and <Text> make use of JSX, a syntax for embedding XML-like structures within JavaScript. JSX tags allow you to cleanly describe your UI
+
+Pano creates a box around your world that renders a 360 photo. It is this component that renders the environment you see when you look around this sample.
+
+Text renders strings in 3D space. This particular Text tag has been styled to place a large word in the middle of your world.
+
+View components are typically used as containers; they hold other components and can be used to provide the spacing and style your UI needs.
+
+The AppRegistry tells React VR which component is the root for the whole application.
+
+3D Coordinates Systems
+  - Right-handed
+  - Units in meters
+  - Rotation in degrees
+  - Clockwise while looking +axis
+
+Linking (changing rooms)
+
+VrMesh (rotating a 3d object)
+
+model rotation
+
+constructor() {
+  super();
+  this.state = { rotation: 0 };
+  this.lastUpdate = Date.now();
+  this.rotate = this.rotate.bind(this);
+}
+
+rotate() {
+  const now = Date.now();
+  const delta = now - this.lastUpdate;
+  this.lastUpdate = now;
+
+  this.setState({rotation: this.state.rotation + delta / 20})
+  this.frameHandle = requestAnimationFrame(this.rotate)
+}
+
+componentDidMount() {
+  this.rotate();
+}
+
+REACT: Key Benefits
+- Familiar
+- Code combines with Declarative UI elements
+  - See behavior and rendering in one place
+  - Easier and more compact
+- Immediate mode rendering behavior
+  - Avoid state transitions
+
+Technology wise, React VR uses a simple OVRUI library, which makes use of a popular Three.js JavaScript 3D engine. Three.js runs inside of the browser and renders the scene through WebGL. Access to VR headsets is provided through the Web VR API, which enables display on the Rift, GearVR or other devices. React VR does not, however, require a VR headset to run - it can also be used to create interactive 360 experiences that run in the browser or on a mobile phone.
