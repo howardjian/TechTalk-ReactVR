@@ -11,15 +11,19 @@ import UI from './UI';
 const clouds = [
   {
     key: 0,
-    imageSrc = 'cloud.png',
+    imageSrc: 'cloud.png',
   },
   {
     key: 1,
-    imageSrc = 'angryCloud.png',
+    imageSrc: 'angryCloud.png',
   }
-]
+];
 
 export default class ButtonsWorld extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <View >

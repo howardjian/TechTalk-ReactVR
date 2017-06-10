@@ -26,8 +26,7 @@ class UI extends React.Component {
           flexDirection: 'row',
           flexWrap: 'wrap',
           transform: [
-            {rotateX: -12},
-            {translate: [-1.5, 0, -3]}
+            {translate: [0, 0, -3]}
           ],
           width: 3,
         }}
