@@ -12,12 +12,16 @@ const Easing = require('Easing');
 class Button extends React.Component {
   constructor(props) {
     super(props);
+    this.onButtonClick = this.onButtonClick.bind(this);
 
     this.state = {
-      src: this.props.src
       animatedTranslation: new Animated.Value(0)
     }
   }
+
+  onButtonClick = () => {
+    this.props.onClick();
+  };
 
   animateIn = () => {
     Animated.timing(
@@ -25,7 +29,7 @@ class Button extends React.Component {
       {
         toValue: 0.125,
         duration: 100,
-        easing: Easing.in,
+        easing: Easing.in
       }
     ).start();
   }
@@ -36,26 +40,24 @@ class Button extends React.Component {
       {
         toValue: 0,
         duration: 100,
-        easing: Easing.in,
+        easing: Easing.in
       }
-    ).start()
-  }
-
-  onButtonClick () {
-    this.props.onClick();
+    ).start();
   }
 
   render() {
     return (
-      <Animated.View>
+      <Animated.View
         style={{
           alignItems: 'center',
           flexDirection: 'row',
+          margin: 0.0125,
           transform: [
             {translateZ: this.state.animatedTranslation}
           ],
           width: 0.7
         }}
+      >
         <VrButton
           onClick={this.onButtonClick}
           onEnter={this.animateIn}
@@ -67,8 +69,7 @@ class Button extends React.Component {
               height: 0.7
             }}
             source={asset(this.props.src)}
-          >
-          </Image>
+          />
         </VrButton>
       </Animated.View>
     )

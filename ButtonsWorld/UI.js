@@ -7,11 +7,10 @@ import Button from './Button';
 class UI extends React.Component {
   constructor(props){
     super(props);
-    this.buttons = this.props.buttonConfig;
   }
 
   render() {
-    const buttons = this.buttons.map((button) => {
+    const buttons = this.props.buttonConfig.map((button) =>
       <Button
         key={button.key}
         onClick={() => {
@@ -19,18 +18,20 @@ class UI extends React.Component {
         }}
         src={button.imageSrc}
       />
-    })
+    )
+
     return (
       <View
         style={{
           flexDirection: 'row',
           flexWrap: 'wrap',
           transform: [
-            {translate: [0, 0, -3]}
+            {translate: [4, 3, 1]},
+            {rotateY: -90}
           ],
           width: 3,
         }}
-        >
+      >
         {buttons}
       </View>
     )
