@@ -7,6 +7,33 @@ import {
   View,
 } from 'react-vr';
 
+export default class cubeWorld extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const test = ({
+      // AXIS: [ +X, -X, +Y, -Y, +Z, -Z]
+      uri: [
+        asset('Left.png'),
+        asset('Right.png'),
+        asset('Top.png'),
+        asset('Bottom.png'),
+        asset('Back.png'),
+        asset('Front.png')
+      ]
+    });
+    return (
+      <View>
+        <Pano source={test.uri}/>
+      </View>
+    );
+  }
+}
+
+AppRegistry.registerComponent('cubeWorld', () => cubeWorld);
+
 const boxes = [
   {
     key: 0,
@@ -27,38 +54,3 @@ const boxes = [
     ]
   }
 ]
-
-
-
-export default class cubeWorld extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   uri: [
-    //     '../static_assets/criminalmind_lf.jpg', '../static_assets/criminalmind_rt.jpg', '../static_assets/criminalmind_up.jpg', '../static_assets/criminalmind_dn.jpg', '../static_assets/criminalmind_ft.jpg',
-    //     '../static_assets/criminalmind_bk.jpg'
-    //   ]
-    // }
-  }
-
-  render() {
-    const test = ({
-      uri: [
-        asset('Left.png'),
-        asset('Right.png'),
-        asset('Top.png'),
-        asset('Bottom.png'),
-        asset('Back.png'),
-        asset('Front.png')
-      ]
-    });
-    // AXIS: [ +X, -X, +Y, -Y, +Z, -Z]
-    return (
-      <View>
-        <Pano source={test.uri}/>
-      </View>
-    );
-  }
-}
-
-AppRegistry.registerComponent('cubeWorld', () => cubeWorld);
